@@ -59,7 +59,7 @@ class Camera(Image):
     :attr:`index` is a :class:`~kivy.properties.NumericProperty` and defaults
     to -1 to allow auto selection.
     '''
-
+    zoom = NumericProperty(0)
     resolution = ListProperty([-1, -1])
     '''Preferred resolution to use when invoking the camera. If you are using
     [-1, -1], the resolution will be the default one::
@@ -88,6 +88,7 @@ class Camera(Image):
         fbind = self.fbind
         fbind('index', on_index)
         fbind('resolution', on_index)
+        fbind('zoom',on_index) #edit by ableity
         on_index()
 
     def on_tex(self, *l):
@@ -100,7 +101,7 @@ class Camera(Image):
         if self.resolution[0] < 0 or self.resolution[1] < 0:
             return
         self._camera = CoreCamera(index=self.index,
-                                  resolution=self.resolution, stopped=True)
+                                  resolution=self.resolution, stopped=True，zoom=self.zoom)#edit by ableity
         self._camera.bind(on_load=self._camera_loaded)
         if self.play:
             self._camera.start()
