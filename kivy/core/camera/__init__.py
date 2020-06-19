@@ -93,7 +93,7 @@ class CameraBase(EventDispatcher):
                           lambda self, x: self._set_resolution(x),
                           doc='Resolution of camera capture (width, height)')
     
-    zoom = property(lambda self: self._get_zoom(), #edit by ableity
+    zoom = property(lambda self: self._get_zoom(),   #edit by ableity
                           lambda self, x: self._set_zoom(x),
                           doc='zoom of camera capture zoom')
 
