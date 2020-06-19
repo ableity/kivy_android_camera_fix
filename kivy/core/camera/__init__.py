@@ -55,12 +55,12 @@ class CameraBase(EventDispatcher):
         kwargs.setdefault('stopped', False)
         kwargs.setdefault('resolution', (640, 480))
         kwargs.setdefault('index', 0)
-        kwargs.setdefault("zoom", 0) #edit by ableity
+        kwargs.setdefault("zoom", 0)   #edit by ableity
 
         self.stopped = kwargs.get('stopped')
         self._resolution = kwargs.get('resolution')
         self._index = kwargs.get('index')
-        self._zoom = kwargs.get('zoom')#edit by ableity
+        self._zoom = kwargs.get('zoom')  #edit by ableity
         self._buffer = None
         self._format = 'rgb'
         self._texture = None
@@ -78,7 +78,7 @@ class CameraBase(EventDispatcher):
         self._resolution = res
         self.init_camera()
         
-    def _set_zoom(self, res): #edit by ableity
+    def _set_zoom(self, res):   #edit by ableity
         self._zoom = res
         self.init_camera()
         
@@ -86,7 +86,7 @@ class CameraBase(EventDispatcher):
     def _get_resolution(self):
         return self._resolution
     
-    def _get_zoom(self): #edit by ableity
+    def _get_zoom(self):   #edit by ableity
         return self._zoom
 
     resolution = property(lambda self: self._get_resolution(),
