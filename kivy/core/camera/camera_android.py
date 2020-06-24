@@ -49,10 +49,11 @@ class CameraAndroid(CameraBase):
         self._android_camera = Camera.open(self._index)
         params = self._android_camera.getParameters()
         width, height = self._resolution
-        zoom = self._zoom   #edit by ableity
+        zoom = self._zoom  # edit by ableity
+        focusmode = self._focusmode  # edit by lilei
         params.setPreviewSize(width, height)
-        params.setFocusMode('continuous-picture')
-        params.setZoom(zoom)   #edit by ableity
+        params.setFocusMode(focusmode)  #edit by lilei
+        params.setZoom(zoom)  # edit by ableity
         self._android_camera.setParameters(params)
         # self._android_camera.setDisplayOrientation()
         self.fps = 30.
