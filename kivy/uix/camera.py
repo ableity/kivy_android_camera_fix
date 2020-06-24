@@ -88,7 +88,8 @@ class Camera(Image):
         fbind = self.fbind
         fbind('index', on_index)
         fbind('resolution', on_index)
-        fbind('zoom',on_index)   #edit by ableity
+        fbind('zoom',on_index)  # edit by ableity
+        fbind('focusmode', on_index)  # edit by ableity
         on_index()
 
     def on_tex(self, *l):
@@ -101,7 +102,7 @@ class Camera(Image):
         if self.resolution[0] < 0 or self.resolution[1] < 0:
             return
         self._camera = CoreCamera(index=self.index,
-                                  resolution=self.resolution, stopped=True,zoom=self.zoom)  #edit by ableity
+                                  resolution=self.resolution, stopped=True,zoom=self.zoom, focusmode=self.focusmode)  # edit by ableity
         self._camera.bind(on_load=self._camera_loaded)
         if self.play:
             self._camera.start()
